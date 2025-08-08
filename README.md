@@ -35,25 +35,28 @@ This means that for the system to work reliably, it requires a **highly controll
 
 ### 3. Case Study: iPhone 13 Pro Camera Inference from a Display
 
-To further investigate the challenges of real-world verification, a specific test was conducted. An encrypted QR code was displayed on a screen and then scanned using an iPhone 13 Pro.
+To further investigate the challenges of real-world verification, a specific test was conducted. A genuine, encrypted QR code and a known forged QR code were displayed on a screen and then scanned using an iPhone 13 Pro.
 
-**Image of the Test:**
+**Test 1: Scanning the Genuine QR Code**
 
-![iPhone Camera Test](Result(Web_predict).jpg)
+![iPhone Camera Test - Genuine](Result(Web_predict).jpg)
 
-**Results:**
-The verification script produced the following output:
-*   `pHash Dist : 12 (Max : 18) -> OK`
-*   `FFT Ratio : 8.589 (Min : 1.5) -> OK`
-*   `HF Strength: -0.365 (Min: 0.15) -> NO`
+*   **Result:**
+    *   `pHash Dist : 12 (Max : 18) -> OK`
+    *   `FFT Ratio : 8.589 (Min : 1.5) -> OK`
+    *   `HF Strength: -0.365 (Min: 0.15) -> NO`
+
+**Test 2: Scanning the Forged QR Code**
+
+![iPhone Camera Test - Fake](Result(Fake).jpg)
+
+*   **Result:** The forged code produced nearly identical results, also passing the `pHash Dist` and `FFT Ratio` checks while failing the `HF Strength`.
 
 **Analysis:**
-At first glance, the results seem partially successful. Two of the three metrics (`pHash Dist` and `FFT Ratio`) passed. However, the `HF Strength` metric failed.
-
-Crucially, the same test was run on an image known to be a **forgery** (`Result(Fake)`). This fake image *also* passed the `pHash Dist` and `FFT Ratio` checks under the same display-and-camera conditions.
+The critical insight comes from comparing these two tests. At first glance, the genuine test seems partially successful because two of the three metrics passed. However, the fact that the known forgery *also* passes the exact same two metrics renders them useless for verification in this context. The `HF Strength` metric failed for both, but since it can't distinguish between the two, it is also an unreliable indicator.
 
 **Conclusion:**
-This test proves that when verifying from a display, the `pHash` and `FFT` metrics are unreliable and can produce false positives for both genuine and fake images. The display environment introduces artifacts that satisfy these checks, making them ineffective for distinguishing forgeries. This reinforces the conclusion that **verification from a screen is currently not possible** with this method.
+This comparative test proves that when verifying from a display, the current logic is unable to distinguish a genuine code from a forged one. The screen's display properties (pixels, light, etc.) create a consistent set of artifacts for *any* QR code being scanned, which leads to false positives on the `pHash` and `FFT` checks. This reinforces the conclusion that **verification from a screen is currently not possible** with this method.
 
 Experiments with printed materials have not yet been conducted.
 
