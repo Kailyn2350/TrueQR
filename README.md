@@ -2,39 +2,40 @@
 
 ## Abstract
 
-This project explores various methodologies for detecting counterfeit QR codes. The primary goal is to differentiate between an original, authentic QR code and one that has been copied, for example, through a screenshot or a physical scan. The project investigates both digital image analysis and real-time camera-based verification, documenting the challenges and successes of each approach.
+This project's primary goal was to develop a logic capable of distinguishing between an original, secured QR code and a counterfeit version created by scanning or copying. The core idea was to embed a fragile "encryption" or digital watermark into the original QR code image. This watermark is designed to be destroyed or significantly altered during the copying process, making forgeries detectable.
 
-## Core Concepts & Initial Hypothesis
+This document outlines the methodology, the success in a controlled digital environment, and the challenges discovered when applying the technique to real-world scenarios involving physical media and cameras.
 
-The initial approach was based on the idea that the process of copying a QR code—whether through digital screen capture or physical printing and scanning—introduces subtle, yet detectable, artifacts. The plan was to identify these artifacts using a combination of image processing techniques:
+## Core Concepts & Methodology
 
-1.  **Gaussian Noise Analysis:** Counterfeit images, especially from scans, often exhibit a different noise profile compared to the clean, digitally generated original.
-2.  **High and Low-Frequency Analysis:** The sharp edges of a genuine QR code have distinct high-frequency components. Copying can blur these edges, altering the frequency distribution.
-3.  **Fourier Phase Transformation:** The phase spectrum of an image is sensitive to structural changes. The hypothesis was that forgery would alter the phase information in a measurable way.
+The verification process was not about finding generic artifacts of copying, but about breaking a specific, embedded signal. The original, genuine QR code has a unique signature embedded within it using a combination of the following techniques:
 
-### Outcome: A Challenging Reality
+1.  **Gaussian Noise:** A specific, low-amplitude noise pattern is added.
+2.  **Frequency Domain Manipulation:** The image is transformed to the frequency domain to subtly alter its high and low-frequency components.
+3.  **Fourier Phase Transformation:** The phase of the image's Fourier transform is modified, embedding information that is sensitive to translation and rotation.
 
-This initial methodology **failed** to produce reliable results. The system was unable to consistently distinguish between genuine and forged QR codes when dealing with images captured from the physical world.
+The combination of these techniques creates a QR code that is **visually indistinguishable** from a standard one. However, when a counterfeit is made (e.g., by taking a screenshot or printing and scanning), the fragile embedded signature is broken. The verification logic then compares the signature of a suspect image to the expected signature of the original.
 
-**Reason for Failure:** The environmental conditions of the QR code had a greater impact on the image analysis than the forgery process itself. Factors like:
-*   The type of display showing the QR code
-*   The quality and texture of the paper it was printed on
-*   The lighting conditions during the scan or photo
-*   The angle and quality of the camera
+## Outcomes and Key Findings
 
-...all introduced variables that a simple algorithmic approach could not overcome.
+### 1. Success in Digital PNG-to-PNG Comparison
 
-## Successful Approaches & Current Status
+**This method was highly successful.** When comparing an "encrypted" source PNG file with a "forged" PNG file (e.g., a screenshot of the original), the system could reliably and accurately differentiate between the genuine and the counterfeit. This confirmed that the core principle of using a fragile, breakable watermark is valid in a purely digital domain where environmental variables are eliminated. To the naked eye, the two PNG files appear virtually identical.
 
-While the physical capture method was unreliable, the project found success in other areas.
+### 2. The Challenge of Physical Media
 
-### 1. Digital PNG File Verification
+The project's primary challenge emerged when moving from digital files to real-world application. When attempting to verify a printed QR code using a smartphone camera (iPhone 13 Pro), the results became inconsistent.
 
-**This method is successful.** When analyzing the raw digital PNG files, the system can reliably and accurately distinguish between a genuine, digitally-created QR code and a forged one (e.g., a screenshot that was saved as a new PNG). This proves that the underlying principle of artifact detection is valid in a controlled, digital-only environment.
+**Reason for Inconsistency:** The verification logic was so sensitive that it was affected by the physical properties of the medium itself. The inference results changed based on:
+*   The texture, gloss, and color of the paper.
+*   Ambient lighting conditions.
+*   The specific angle and distance of the camera.
 
-### 2. Real-time Webcam Verification
+This means that for the system to work reliably, it requires a **highly controlled environment**. For example, verification is possible if the QR code is always printed on a specific, standardized type of paper under controlled lighting. This limits the universal applicability of the method but proves its viability for high-security scenarios where the printing medium can be standardized.
 
-**This method is currently unsuccessful.** An attempt was made to use a high-quality smartphone camera (iPhone 13 Pro) to verify a QR code displayed on a screen. This failed for reasons similar to the physical print-and-scan method. The display environment (screen brightness, pixel grid, refresh rate, viewing angle) is fundamentally different from a static paper environment, and the system was not able to account for these variations.
+### 3. The Discovery of Display-Based Issues
+
+During this process, an additional complication was discovered: verifying a QR code displayed on a screen (like a monitor or phone) with a camera is fundamentally different and more complex than verifying a printed one. The pixel grid, screen brightness, and refresh rate of the display introduce a new set of variables that interfere with the fragile watermark, leading to failed verification. This highlighted the critical need to **limit the material and medium** for the verification to be considered reliable.
 
 ## How to Use This Project
 
