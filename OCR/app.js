@@ -80,7 +80,8 @@ async function verifyFrame() {
   const tempCtx = tempCanvas.getContext("2d");
   tempCtx.drawImage(video, sx, sy, boxSize, boxSize, 0, 0, boxSize, boxSize);
   
-  const imageDataUrl = tempCanvas.toDataURL("image/jpeg", 0.9);
+  // --- Changed to PNG for lossless compression ---
+  const imageDataUrl = tempCanvas.toDataURL("image/png");
 
   try {
     const response = await fetch("/verify", {
