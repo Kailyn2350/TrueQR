@@ -33,9 +33,29 @@ The project's primary challenge emerged when moving from digital files to real-w
 
 This means that for the system to work reliably, it requires a **highly controlled environment**. For example, verification is possible if the QR code is always printed on a specific, standardized type of paper under controlled lighting. This limits the universal applicability of the method but proves its viability for high-security scenarios where the printing medium can be standardized.
 
-### 3. The Discovery of Display-Based Issues
+### 3. Case Study: iPhone 13 Pro Camera Inference from a Display
 
-During this process, an additional complication was discovered: verifying a QR code displayed on a screen (like a monitor or phone) with a camera is fundamentally different and more complex than verifying a printed one. The pixel grid, screen brightness, and refresh rate of the display introduce a new set of variables that interfere with the fragile watermark, leading to failed verification. This highlighted the critical need to **limit the material and medium** for the verification to be considered reliable.
+To further investigate the challenges of real-world verification, a specific test was conducted. An encrypted QR code was displayed on a screen and then scanned using an iPhone 13 Pro.
+
+**Image of the Test:**
+
+![iPhone Camera Test](Result(Web_predict).jpg)
+
+**Results:**
+The verification script produced the following output:
+*   `pHash Dist : 12 (Max : 18) -> OK`
+*   `FFT Ratio : 8.589 (Min : 1.5) -> OK`
+*   `HF Strength: -0.365 (Min: 0.15) -> NO`
+
+**Analysis:**
+At first glance, the results seem partially successful. Two of the three metrics (`pHash Dist` and `FFT Ratio`) passed. However, the `HF Strength` metric failed.
+
+Crucially, the same test was run on an image known to be a **forgery** (`Result(Fake)`). This fake image *also* passed the `pHash Dist` and `FFT Ratio` checks under the same display-and-camera conditions.
+
+**Conclusion:**
+This test proves that when verifying from a display, the `pHash` and `FFT` metrics are unreliable and can produce false positives for both genuine and fake images. The display environment introduces artifacts that satisfy these checks, making them ineffective for distinguishing forgeries. This reinforces the conclusion that **verification from a screen is currently not possible** with this method.
+
+Experiments with printed materials have not yet been conducted.
 
 ## How to Use This Project
 
