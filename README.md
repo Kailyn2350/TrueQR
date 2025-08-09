@@ -19,7 +19,7 @@ A perceptual hash is used to create a "fingerprint" of the image's low-frequency
 The process is as follows:
 1.  The image $I$ is converted to grayscale and resized to a fixed size (e.g., 32x32).
 2.  The 2D Discrete Cosine Transform (DCT) is applied:
-    $$ C = \text{DCT}(I) $$
+    $$C = \text{DCT}(I)$$
 3.  A low-frequency $8 \times 8$ sub-region $C_{low}$ is extracted.
 4.  The median value $m$ of the coefficients in $C_{low}$ (excluding the DC component $C[0,0]$) is calculated.
 5.  A 63-bit hash $H$ is generated where each bit $h_i$ corresponds to a coefficient $c_i$ in $C_{low}$:
@@ -30,21 +30,21 @@ The process is as follows:
     0 & \text{otherwise}
     \end{cases}
     $$
-
+    
 **Verification:** The Hamming distance $d_H$ between the pHash of the test image ($H_{test}$) and the reference image ($H_{ref}$) is calculated. The check passes if the distance is below a certain threshold $\tau_p$:
-$$ d_H(H_{test}, H_{ref}) \le \tau_p $$
+$$d_H(H_{test}, H_{ref}) \le \tau_p$$
 
 #### 2. High-Frequency Grid (HFG) Strength
 
 This metric measures a high-frequency pattern secretly embedded across the image. A faint grid of pixels in the original "secured" image is made slightly brighter than its immediate neighbors. This subtle difference is destroyed by the blurring inherent in any copying process.
 
 1.  A grid $G$ is defined by sampling pixels from the grayscale image $I$ at a fixed interval, $s$:
-    $$ G = \{I(x, y) \mid x \pmod s = 0, y \pmod s = 0\} $$
+    $$G = \{I(x, y) \mid x \pmod s = 0, y \pmod s = 0\}$$
 2.  The strength $S_{HFG}$ is the difference between the mean intensity of the grid pixels ($\mu_G$) and the mean intensity of the non-grid pixels ($\mu_{\neg G}$):
-    $$ S_{HFG} = \mu_G - \mu_{\neg G} $$
+    $$S_{HFG} = \mu_G - \mu_{\neg G}$$
 
 **Verification:** A genuine image will have a positive $S_{HFG}$ value, as the grid points are brighter. The check passes if the measured strength is above a minimum threshold $\tau_h$:
-$$ S_{HFG}(I_{test}) \ge \tau_h $$
+$$S_{HFG}(I_{test}) \ge \tau_h$$
 
 #### 3. Frequency Peak Ratio (FPR)
 
@@ -52,13 +52,13 @@ This technique embeds a periodic signal (a sine wave) at a specific, known frequ
 
 1.  A representative row $r(x)$ (e.g., the middle row) is extracted from the image.
 2.  The 1D Fast Fourier Transform (FFT) is computed: 
-    $$ R(f) = \text{FFT}(r(x)) $$
+    $$R(f) = \text{FFT}(r(x))$$
 3.  The magnitude $M(f) = |R(f)|$ of the spectrum is calculated.
 4.  The ratio $R_{FP}$ is the magnitude at the target frequency $M(k)$ divided by the mean magnitude of the background frequencies $\mu_{bg}$:
-    $$ R_{FP} = \frac{M(k)}{\mu_{bg}} $$
+    $$R_{FP} = \frac{M(k)}{\mu_{bg}}$$
 
 **Verification:** A genuine image will exhibit a strong peak at the frequency $k$. The check passes if the ratio is above a minimum threshold $\tau_f$:
-$$ R_{FP}(I_{test}) \ge \tau_f $$ 
+$$R_{FP}(I_{test}) \ge \tau_f$$
 
 
 ## Outcomes and Key Findings
