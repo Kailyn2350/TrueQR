@@ -39,7 +39,7 @@ To further investigate the challenges of real-world verification, a specific tes
 
 **Test 1: Scanning the Genuine QR Code**
 
-![iPhone Camera Test - Genuine](Result(Web_predict).jpg)
+![iPhone Camera Test - Genuine](config/Result(Web_predict).jpg)
 
 *   **Result:**
     *   `pHash Dist : 12 (Max : 18) -> OK`
@@ -48,7 +48,7 @@ To further investigate the challenges of real-world verification, a specific tes
 
 **Test 2: Scanning the Forged QR Code**
 
-![iPhone Camera Test - Fake](Result(Fake).jpg)
+![iPhone Camera Test - Fake](config/Result(Fake).jpg)
 
 *   **Result:** The forged code produced nearly identical results, also passing the `pHash Dist` and `FFT Ratio` checks while failing the `HF Strength`.
 
@@ -58,7 +58,102 @@ The critical insight comes from comparing these two tests. At first glance, the 
 **Conclusion:**
 This comparative test proves that when verifying from a display, the current logic is unable to distinguish a genuine code from a forged one. The screen's display properties (pixels, light, etc.) create a consistent set of artifacts for *any* QR code being scanned, which leads to false positives on the `pHash` and `FFT` checks. This reinforces the conclusion that **verification from a screen is currently not possible** with this method.
 
-Experiments with printed materials have not yet been conducted.
+### 3. Evolving the Approach: From Signal Processing to Deep Learning
+
+The initial tests, particularly those involving scanning from a screen, revealed that the signal processing method was too fragile and susceptible to environmental noise. While it worked in a controlled digital environment, it failed to provide reliable results in more realistic scenarios.
+
+**Initial tests with printed materials yielded mixed results.** A genuine printed QR code was correctly identified, as shown below:
+
+![Genuine QR Code Verification](config/Result(real).jpg)
+
+However, when testing with high-quality fakes (A4 paper copies), the system struggled. While it often identified them as fakes, it would sometimes misclassify them as genuine, highlighting the method's unreliability.
+
+![Fake QR Code Test 1](config/Result(Fake_A4)_1.jpg)
+![Fake QR Code Test 2](config/Result(Fake_A4)_2.jpg)
+*Caption: While often detected as fakes, these high-quality copies were sometimes misclassified as genuine.*
+
+To overcome these limitations and build a more robust verification system, the project pivoted to a **Deep Learning approach using a Convolutional Neural Network (CNN)**. The new goal was to train a model to learn the visual features that differentiate genuine QR codes from fakes, rather than relying on a single, fragile embedded signal.
+
+#### 3.1 Data Collection for the CNN Model
+
+A comprehensive dataset was collected to train the model, focusing on realistic variations.
+
+**Genuine Data (155 originals):**
+*   **High-Quality (62 images):** A secure QR code was printed and photographed with an iPhone 13 Pro.
+    *   31 images in a dark environment.
+    *   31 images in bright, natural light.
+*   **Low-Quality (93 images):** To improve robustness, additional images were captured from a distance, resulting in lower resolution.
+    *   31 images in a dark environment.
+    *   31 images under bright fluorescent light.
+    *   31 images in bright, natural light.
+
+**Fake Data (124 originals):**
+*   **1st Generation Copies (62 images):** The original printed QR was photocopied once.
+*   **2nd Generation Copies (62 images):** The 1st generation copies were photocopied again, simulating further degradation.
+
+#### 3.2 Data Augmentation
+
+To create a larger and more diverse training set, all 279 original images (155 genuine + 124 fake) were **augmented by a factor of 10**. The augmentations included random variations in:
+*   Noise
+*   Brightness
+
+This resulted in a total dataset of 2,790 images for training and validation.
+
+#### 3.3 Model Training and Performance
+
+A CNN model was trained on the augmented dataset. The training process yielded highly promising results, achieving a **validation accuracy of over 99%**. This indicates that the model learned to effectively distinguish between genuine and fake QR code images.
+
+#### 3.3.1 Model Architecture
+
+The model leverages **transfer learning** by using a pre-trained, well-established architecture as its base. This approach allows the model to benefit from the powerful feature extraction capabilities learned from a massive dataset (ImageNet).
+
+The architecture consists of two main parts:
+
+1.  **Base Model:** `MobileNetV2`, provided by `tf.keras.applications`.
+    *   It is initialized with `imagenet` weights.
+    *   The entire base model is "frozen" (`trainable = False`), meaning its weights are not updated during training. It acts as a fixed feature extractor.
+
+2.  **Custom Classifier Head:** A new set of layers was added on top of the `MobileNetV2` base to adapt it for our specific binary classification task (Genuine vs. Fake).
+    *   `GlobalAveragePooling2D`: To reduce the spatial dimensions of the features from the base model.
+    *   `Dropout (rate=0.2)`: A regularization technique to prevent overfitting.
+    *   `Dense (1, activation='sigmoid')`: The final output layer with a single neuron and a sigmoid activation function, which outputs a probability score between 0 and 1.
+
+The model was compiled with the `Adam` optimizer (learning rate of 0.001) and `BinaryCrossentropy` loss function, which are standard choices for binary classification tasks.
+
+**Model Summary:**
+
+```
+Model: "functional"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ input_layer (InputLayer)    [(None, 224, 224, 3)]     0
+
+ mobilenetv2_1.00_224        (None, 7, 7, 1280)        2,257,984
+ (Functional)
+
+ global_average_pooling2d    (None, 1280)              0
+ (GlobalAveragePooling2D)
+
+ dropout (Dropout)           (None, 1280)              0
+
+ dense (Dense)               (None, 1)                 1,281
+=================================================================
+ Total params: 2,259,265
+ Trainable params: 1,281
+ Non-trainable params: 2,257,984
+```
+*(Note: The preprocessing layers are part of the model but are omitted from this summary for brevity.)*
+
+The detailed training history, including accuracy and loss curves, is shown below:
+
+![Model Training History](results/training_history.png)
+
+Furthermore, the model's performance was evaluated with the `src/visual_test.py` script, which confirmed its ability to correctly classify samples from different categories, reinforcing the successful outcome of the training.
+
+#### 3.4 Next Steps: Real-Time Verification
+
+With a successfully trained model, the final step is to validate its performance in a real-world, real-time scenario. The project will now focus on using the **web camera inference application** to see if the high accuracy achieved in training translates to practical use with a live camera feed.
 
 ## How to Use This Project
 

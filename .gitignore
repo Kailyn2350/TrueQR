@@ -1,3 +1,8 @@
-/originals
-/secured
-/simulated_copies
+# Ignore directories containing training data, generated models, and results.
+# These are typically large, derived from originals, or sensitive and should not be in version control.
+
+/augmented_data/
+/False_data/
+/True_data/
+/originals/
+/results/

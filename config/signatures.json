@@ -1,0 +1,260 @@
+{
+  "params": {
+    "brightness_variation": true,
+    "freq_pattern": true,
+    "phase_pattern": true,
+    "hf_step": 4,
+    "hf_delta": 10.0,
+    "lf_cycles_x": 4
+  },
+  "items": [
+    {
+      "file": "ecoqcode (1).png",
+      "signature": {
+        "phash": 10616676822620961213,
+        "hf_strength": 0.573486328125,
+        "fft_peak_ratio": 26.274961471557617
+      }
+    },
+    {
+      "file": "ecoqcode (10).png",
+      "signature": {
+        "phash": 10615550939691286441,
+        "hf_strength": 0.5401153564453125,
+        "fft_peak_ratio": 10.665802955627441
+      }
+    },
+    {
+      "file": "ecoqcode (11).png",
+      "signature": {
+        "phash": 9463772927330156207,
+        "hf_strength": 0.5684661865234375,
+        "fft_peak_ratio": 3.048715829849243
+      }
+    },
+    {
+      "file": "ecoqcode (12).png",
+      "signature": {
+        "phash": 10544635764222521263,
+        "hf_strength": 0.6132965087890625,
+        "fft_peak_ratio": 6.453563690185547
+      }
+    },
+    {
+      "file": "ecoqcode (13).png",
+      "signature": {
+        "phash": 10544618163404406191,
+        "hf_strength": 0.6279754638671875,
+        "fft_peak_ratio": 9.897298812866211
+      }
+    },
+    {
+      "file": "ecoqcode (14).png",
+      "signature": {
+        "phash": 10544056295614840233,
+        "hf_strength": 0.6986846923828125,
+        "fft_peak_ratio": 8.4894380569458
+      }
+    },
+    {
+      "file": "ecoqcode (15).png",
+      "signature": {
+        "phash": 9390570776169344941,
+        "hf_strength": 0.5433197021484375,
+        "fft_peak_ratio": 5.00078010559082
+      }
+    },
+    {
+      "file": "ecoqcode (16).png",
+      "signature": {
+        "phash": 10400520550351306669,
+        "hf_strength": 0.67431640625,
+        "fft_peak_ratio": 8.054875373840332
+      }
+    },
+    {
+      "file": "ecoqcode (17).png",
+      "signature": {
+        "phash": 10544637937417387693,
+        "hf_strength": 0.6884307861328125,
+        "fft_peak_ratio": 18.297555923461914
+      }
+    },
+    {
+      "file": "ecoqcode (18).png",
+      "signature": {
+        "phash": 9391697740960362413,
+        "hf_strength": 0.5078277587890625,
+        "fft_peak_ratio": 3.4091036319732666
+      }
+    },
+    {
+      "file": "ecoqcode (19).png",
+      "signature": {
+        "phash": 10543493345660825517,
+        "hf_strength": 0.533416748046875,
+        "fft_peak_ratio": 6.378635883331299
+      }
+    },
+    {
+      "file": "ecoqcode (2).png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.6903228759765625,
+        "fft_peak_ratio": 7.943517684936523
+      }
+    },
+    {
+      "file": "ecoqcode (20).png",
+      "signature": {
+        "phash": 10400520550150569641,
+        "hf_strength": 0.55853271484375,
+        "fft_peak_ratio": 9.769268035888672
+      }
+    },
+    {
+      "file": "ecoqcode (21).png",
+      "signature": {
+        "phash": 10400520550158434220,
+        "hf_strength": 0.6349639892578125,
+        "fft_peak_ratio": 23.755756378173828
+      }
+    },
+    {
+      "file": "ecoqcode (22).png",
+      "signature": {
+        "phash": 9463769628834987949,
+        "hf_strength": 0.68841552734375,
+        "fft_peak_ratio": 13.978093147277832
+      }
+    },
+    {
+      "file": "ecoqcode (23).png",
+      "signature": {
+        "phash": 10688748744867639212,
+        "hf_strength": 0.5823822021484375,
+        "fft_peak_ratio": 12.892632484436035
+      }
+    },
+    {
+      "file": "ecoqcode (24).png",
+      "signature": {
+        "phash": 10832870521188450220,
+        "hf_strength": 0.5316009521484375,
+        "fft_peak_ratio": 9.4342041015625
+      }
+    },
+    {
+      "file": "ecoqcode (25).png",
+      "signature": {
+        "phash": 10400522732171820989,
+        "hf_strength": 0.6631927490234375,
+        "fft_peak_ratio": 4.361364841461182
+      }
+    },
+    {
+      "file": "ecoqcode (26).png",
+      "signature": {
+        "phash": 10832866097359552429,
+        "hf_strength": 0.5324859619140625,
+        "fft_peak_ratio": 3.79374623298645
+      }
+    },
+    {
+      "file": "ecoqcode (27).png",
+      "signature": {
+        "phash": 10400524948381105325,
+        "hf_strength": 0.576629638671875,
+        "fft_peak_ratio": 2.085556745529175
+      }
+    },
+    {
+      "file": "ecoqcode (28).png",
+      "signature": {
+        "phash": 10398831700506836911,
+        "hf_strength": 0.677490234375,
+        "fft_peak_ratio": 11.357670783996582
+      }
+    },
+    {
+      "file": "ecoqcode (29).png",
+      "signature": {
+        "phash": 9463759715799006637,
+        "hf_strength": 0.50897216796875,
+        "fft_peak_ratio": 11.742539405822754
+      }
+    },
+    {
+      "file": "ecoqcode (3).png",
+      "signature": {
+        "phash": 10616676822358948271,
+        "hf_strength": 0.575103759765625,
+        "fft_peak_ratio": 13.731842041015625
+      }
+    },
+    {
+      "file": "ecoqcode (30).png",
+      "signature": {
+        "phash": 10832870521253461932,
+        "hf_strength": 0.50738525390625,
+        "fft_peak_ratio": 9.34600830078125
+      }
+    },
+    {
+      "file": "ecoqcode (4).png",
+      "signature": {
+        "phash": 10616676822353051065,
+        "hf_strength": 0.6275482177734375,
+        "fft_peak_ratio": 18.803415298461914
+      }
+    },
+    {
+      "file": "ecoqcode (5).png",
+      "signature": {
+        "phash": 10616694414538571193,
+        "hf_strength": 0.6313629150390625,
+        "fft_peak_ratio": 11.898675918579102
+      }
+    },
+    {
+      "file": "ecoqcode (6).png",
+      "signature": {
+        "phash": 10616676822361046441,
+        "hf_strength": 0.6317291259765625,
+        "fft_peak_ratio": 9.55229377746582
+      }
+    },
+    {
+      "file": "ecoqcode (7).png",
+      "signature": {
+        "phash": 10616692215783882153,
+        "hf_strength": 0.6180419921875,
+        "fft_peak_ratio": 9.359440803527832
+      }
+    },
+    {
+      "file": "ecoqcode (8).png",
+      "signature": {
+        "phash": 10616676822358949293,
+        "hf_strength": 0.6444091796875,
+        "fft_peak_ratio": 6.419002056121826
+      }
+    },
+    {
+      "file": "ecoqcode (9).png",
+      "signature": {
+        "phash": 1393304802934914223,
+        "hf_strength": 0.6230010986328125,
+        "fft_peak_ratio": 9.63585376739502
+      }
+    },
+    {
+      "file": "ecoqcode.png",
+      "signature": {
+        "phash": 9463755317746204093,
+        "hf_strength": 0.5068206787109375,
+        "fft_peak_ratio": 5.581261157989502
+      }
+    }
+  ]
+}
