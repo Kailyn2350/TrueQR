@@ -157,6 +157,28 @@ Furthermore, the model's performance was evaluated with the `src/visual_test.py`
 
 With a successfully trained model, the final step is to validate its performance in a real-world, real-time scenario. The project will now focus on using the **web camera inference application** to see if the high accuracy achieved in training translates to practical use with a live camera feed.
 
+#### 3.5 Current Limitations and Future Direction
+
+Initial real-time tests using the web camera and offline tests with `visual_test.py` revealed a critical limitation in the current model's understanding.
+
+**Observation:**
+As shown in the test results below, the model is highly effective at distinguishing between photographs of a genuine printed QR code and photographs of a simple paper copy.
+
+![Visual Test Results](config/Test_result.png)
+
+**Problem:**
+However, the model fails when tested against the digitally generated `simulated_copies`. It incorrectly classifies all of these fakes as "True".
+
+**Analysis:**
+This behavior strongly suggests that the model has not learned the *specific* fragile watermark pattern we embedded. Instead, it appears to be making predictions based on more general features that distinguish a photo of a print from a photo of a copy (e.g., texture, moiré patterns, subtle lighting changes). In essence, it is detecting the presence of *any* print-like pattern, not the *correct* one.
+
+**Future Work:**
+To address this, the next phase of development will focus on retraining the model to learn the precise cryptographic pattern. The training dataset will be refined to include:
+*   **Positive Class:** The original, digitally generated `secured` images.
+*   **Negative Class:** The `simulated_copies` images.
+
+By training on this digital-only dataset, we aim to force the model to learn the specific, subtle artifacts of our intended security pattern, making it a true watermark detector.
+
 ## How to Use This Project
 
 ### Prerequisites
