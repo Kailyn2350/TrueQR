@@ -8,19 +8,80 @@ This document outlines the methodology, the success in a controlled digital envi
 
 ## Core Concepts & Methodology
 
-The verification process was not about finding generic artifacts of copying, but about breaking a specific, embedded signal. The original, genuine QR code has a unique signature embedded within it using a combination of the following techniques:
+The verification process is not designed to find generic artifacts of copying, but to detect the degradation of a specific, fragile signal embedded within the QR code's pixel data. This embedded watermark is engineered to be robust enough to survive normal viewing but fragile enough to be destroyed by print-scan or digital-to-analog conversion processes.
 
-1.  **Gaussian Noise:** A specific, low-amplitude noise pattern is added.
-2.  **Frequency Domain Manipulation:** The image is transformed to the frequency domain to subtly alter its high and low-frequency components.
-3.  **Fourier Phase Transformation:** The phase of the image's Fourier transform is modified, embedding information that is sensitive to translation and rotation.
+The methodology involves three primary signature components, each targeting a different characteristic of the image.
 
-The combination of these techniques creates a QR code that is **visually indistinguishable** from a standard one. However, when a counterfeit is made (e.g., by taking a screenshot or printing and scanning), the fragile embedded signature is broken. The verification logic then compares the signature of a suspect image to the expected signature of the original.
+#### 1. Perceptual Hash (pHash)
+
+A perceptual hash is used to create a "fingerprint" of the image's low-frequency components. This provides a general representation of the QR code's structure that is robust to minor scaling and compression but will change if the overall structure is altered.
+
+The process is as follows:
+1.  The image `I` is converted to grayscale and resized to a fixed size (e.g., 32x32).
+2.  The 2D Discrete Cosine Transform (DCT) is applied:
+    `C = DCT(I)`
+3.  A low-frequency `8x8` sub-region `C_low` is extracted.
+4.  The median value `m` of the coefficients in `C_low` (excluding the DC component `C[0,0]`) is calculated.
+5.  A 63-bit hash `H` is generated where each bit `h_i` corresponds to a coefficient `c_i` in `C_low`:
+    `h_i = 1 if c_i > m else 0`
+
+**Verification:** The Hamming distance `d_H` between the pHash of the test image (`H_test`) and the reference image (`H_ref`) is calculated. The check passes if the distance is below a certain threshold `τ_p`:
+`d_H(H_test, H_ref) <= τ_p`
+
+#### 2. High-Frequency Grid (HFG) Strength
+
+This metric measures a high-frequency pattern secretly embedded across the image. A faint grid of pixels in the original "secured" image is made slightly brighter than its immediate neighbors. This subtle difference is destroyed by the blurring inherent in any copying process.
+
+1.  A grid `G` is defined by sampling pixels from the grayscale image `I` at a fixed interval, `s`:
+    `G = {I(x, y) | x mod s = 0, y mod s = 0}`
+2.  The strength `S_HFG` is the difference between the mean intensity of the grid pixels (`μ_G`) and the mean intensity of the non-grid pixels (`μ_¬G`):
+    `S_HFG = μ_G - μ_¬G`
+
+**Verification:** A genuine image will have a positive `S_HFG` value, as the grid points are brighter. The check passes if the measured strength is above a minimum threshold `τ_h`:
+`S_HFG(I_test) >= τ_h`
+
+#### 3. Frequency Peak Ratio (FPR)
+
+This technique embeds a periodic signal (a sine wave) at a specific, known frequency `k` along one axis of the image. This creates a sharp peak in the image's frequency spectrum that is highly susceptible to compression and resampling artifacts.
+
+1.  A representative row `r(x)` (e.g., the middle row) is extracted from the image.
+2.  The 1D Fast Fourier Transform (FFT) is computed: `R(f) = FFT(r(x))`
+3.  The magnitude `M(f) = |R(f)|` of the spectrum is calculated.
+4.  The ratio `R_FP` is the magnitude at the target frequency `M(k)` divided by the mean magnitude of the background frequencies `μ_bg`:
+    `R_FP = M(k) / μ_bg`
+
+**Verification:** A genuine image will exhibit a strong peak at the frequency `k`. The check passes if the ratio is above a minimum threshold `τ_f`:
+`R_FP(I_test) >= τ_f`
 
 ## Outcomes and Key Findings
 
 ### 1. Success in Digital PNG-to-PNG Comparison
 
-**This method was highly successful.** When comparing an "encrypted" source PNG file with a "forged" PNG file (e.g., a screenshot of the original), the system could reliably and accurately differentiate between the genuine and the counterfeit. This confirmed that the core principle of using a fragile, breakable watermark is valid in a purely digital domain where environmental variables are eliminated. To the naked eye, the two PNG files appear virtually identical.
+**This method was highly successful in a purely digital context.** To validate this, we can use the `src/test_verify.py` script, which uses the original signal processing logic to check for the fragile watermark.
+
+When testing against the original, digitally **secured** images, the script correctly identifies all of them as genuine:
+
+```
+$ python src/test_verify.py --mode verify --input_dir "True_data/secured" --meta "config/signatures.json"
+
+ecoqcode (1).png: GENUINE  |  detail={'hamming': 0, 'hf_strength': 0.573, 'fft_peak_ratio': 26.27, ...}
+ecoqcode (10).png: GENUINE  |  detail={'hamming': 0, 'hf_strength': 0.540, 'fft_peak_ratio': 10.66, ...}
+ecoqcode (11).png: GENUINE  |  detail={'hamming': 0, 'hf_strength': 0.568, 'fft_peak_ratio': 3.04, ...}
+...
+```
+
+Conversely, when testing against the **simulated copies** (which mimic the degradation from printing and scanning), the script correctly identifies all of them as fakes:
+
+```
+$ python src/test_verify.py --mode verify --input_dir "False_data/simulated_copies" --meta "config/signatures.json"
+
+ecoqcode (1)_copy1.png: COPY/ALTERED  |  detail={'hamming': 4, 'hf_strength': 0.127, 'fft_peak_ratio': 3.46, ...}
+ecoqcode (1)_copy2.png: COPY/ALTERED  |  detail={'hamming': 0, 'hf_strength': 0.052, 'fft_peak_ratio': 12.74, ...}
+ecoqcode (1)_copy3.png: COPY/ALTERED  |  detail={'hamming': 4, 'hf_strength': 0.075, 'fft_peak_ratio': 1.60, ...}
+...
+```
+
+This confirms that the core principle of using a fragile, breakable watermark is valid in a purely digital domain where environmental variables are eliminated. To the naked eye, the two sets of PNG files appear virtually identical.
 
 ### 2. The Challenge of Physical Media
 
@@ -149,28 +210,19 @@ The detailed training history, including accuracy and loss curves, is shown belo
 
 ![Model Training History](results/training_history.png)
 
-Furthermore, the model's performance was evaluated with the `src/visual_test.py` script. The results, shown below, confirm the model's ability to correctly classify samples from different categories (including augmented data, high-quality "secured" prints, and simulated copies), reinforcing the successful outcome of the training.
+#### 3.4 Verification and Limitation Analysis
+
+Following the successful training, the model's performance was evaluated using the `src/visual_test.py` script to see how it would perform on various data categories.
+
+The results, shown in the image below, revealed a critical flaw in the model's logic.
 
 ![Visual Test Results](config/Test_result.png)
-
-#### 3.4 Next Steps: Real-Time Verification
-
-With a successfully trained model, the final step is to validate its performance in a real-world, real-time scenario. The project will now focus on using the **web camera inference application** to see if the high accuracy achieved in training translates to practical use with a live camera feed.
-
-#### 3.5 Current Limitations and Future Direction
-
-Initial real-time tests using the web camera and offline tests with `visual_test.py` revealed a critical limitation in the current model's understanding.
-
-**Observation:**
-As shown in the test results below, the model is highly effective at distinguishing between photographs of a genuine printed QR code and photographs of a simple paper copy.
-
-![Visual Test Results](config/Test_result.png)
-
-**Problem:**
-However, the model fails when tested against the digitally generated `simulated_copies`. It incorrectly classifies all of these fakes as "True".
 
 **Analysis:**
-This behavior strongly suggests that the model has not learned the *specific* fragile watermark pattern we embedded. Instead, it appears to be making predictions based on more general features that distinguish a photo of a print from a photo of a copy (e.g., texture, moiré patterns, subtle lighting changes). In essence, it is detecting the presence of *any* print-like pattern, not the *correct* one.
+*   **Success:** The model is highly effective at distinguishing between photographs of a genuine printed QR code (`Augmented (True)`) and photographs of a simple paper copy (`Augmented (False)`).
+*   **Failure:** The model incorrectly classifies all digitally altered fakes (`Simulated Copies (Expected: False)`) as "True".
+
+This outcome strongly suggests that the model has not learned the *specific* fragile watermark pattern we embedded. Instead, it appears to be making predictions based on more general features that distinguish a photo of a print from a photo of a copy (e.g., texture, moiré patterns, subtle lighting changes). In essence, it is detecting the presence of *any* print-like pattern, not the *correct* one.
 
 **Future Work:**
 To address this, the next phase of development will focus on retraining the model to learn the precise cryptographic pattern. The training dataset will be refined to include:

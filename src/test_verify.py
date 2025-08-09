@@ -178,7 +178,7 @@ def verify_folder(test_dir, meta_path):
         passed, detail = verify_with_signature(
             img, ref_sig, hf_step=params["hf_step"], lf_cycles_x=params["lf_cycles_x"]
         )
-        verdict = "GENUINE ✅" if passed else "COPY/ALTERED ❌"
+        verdict = "GENUINE" if passed else "COPY/ALTERED"
         print(f"{name}: {verdict}  |  detail={detail}")
 
 
