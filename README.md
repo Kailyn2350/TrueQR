@@ -54,6 +54,7 @@ This technique embeds a periodic signal (a sine wave) at a specific, known frequ
 $ R_{FP}(I_{test}) \ge \tau_f $
 
 
+
 ## Outcomes and Key Findings
 
 ### 1. Success in Digital PNG-to-PNG Comparison
