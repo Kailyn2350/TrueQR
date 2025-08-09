@@ -149,7 +149,9 @@ The detailed training history, including accuracy and loss curves, is shown belo
 
 ![Model Training History](results/training_history.png)
 
-Furthermore, the model's performance was evaluated with the `src/visual_test.py` script, which confirmed its ability to correctly classify samples from different categories, reinforcing the successful outcome of the training.
+Furthermore, the model's performance was evaluated with the `src/visual_test.py` script. The results, shown below, confirm the model's ability to correctly classify samples from different categories (including augmented data, high-quality "secured" prints, and simulated copies), reinforcing the successful outcome of the training.
+
+![Visual Test Results](config/Test_result.png)
 
 #### 3.4 Next Steps: Real-Time Verification
 
