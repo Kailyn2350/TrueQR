@@ -232,35 +232,53 @@ The results, shown in the image below, revealed a critical flaw in the model's l
 
 This outcome strongly suggests that the model has not learned the *specific* fragile watermark pattern we embedded. Instead, it appears to be making predictions based on more general features that distinguish a photo of a print from a photo of a copy (e.g., texture, moiré patterns, subtle lighting changes). In essence, it is detecting the presence of *any* print-like pattern, not the *correct* one.
 
-### 4. Further Experiments and Final Conclusion
+### 4. Further Experiments with Hybrid Models
 
 The initial analysis showed that the CNN model was not learning the specific watermark. The next logical step was to create a model that could more directly analyze the watermark's quantitative features.
 
 #### 4.1 Experiment 1: Hybrid Model on Digital Data
-
-To force the model to learn the specific patterns, a hybrid approach was developed. This multi-input model was trained not only on the image data but also on the three signature values (`phash`, `hf_strength`, `fft_peak_ratio`) associated with each digital image. The model was trained on the `secured` (True) and `simulated_copies` (False) datasets.
-
-The training results were excellent, achieving nearly 100% validation accuracy.
-
-![Model Training History](results/training_history_multi_input.png)
-
-A visual test confirmed the results. The model perfectly distinguished between the original digital files and their simulated copies. However, when tested against real-world images (photos taken with a camera), it failed completely, classifying all of them as `false`. This confirmed that the fragile watermark was being destroyed by the print-and-scan process, even before the model saw it.
+To force the model to learn the specific patterns, a hybrid approach was developed. This multi-input model was trained not only on the image data but also on the three signature values (`phash`, `hf_strength`, `fft_peak_ratio`) associated with each digital image. The model was trained on the `secured` (True) and `simulated_copies` (False) datasets. While training results were excellent, a visual test showed that the model failed completely on real-world images (photos taken with a camera), classifying all of them as `false`. This confirmed that the fragile watermark was being destroyed by the print-and-scan process.
 
 ![Visual Test Results on Digital-trained Hybrid Model](results/visual_test_results_multi_input.png)
 
 #### 4.2 Experiment 2: Hybrid Model on Real-World Data
-
-Given the failure on camera images, the next experiment was to train the same hybrid model on a more realistic dataset. The model was retrained using the `augmented_data` folder, which contains photos of genuine prints (`true`) and photos of copies (`false`), along with their corresponding signature values.
-
-The results, however, were largely the same. The model learned to classify the pristine digital QR codes correctly but failed to find any meaningful distinction between the photos of genuine prints and the photos of copies.
+Given the failure on camera images, the next experiment was to train the same hybrid model on a more realistic dataset (`augmented_data`). The results, however, were largely the same. The model learned to classify the pristine digital QR codes correctly but failed to find any meaningful distinction between the photos of genuine prints and the photos of copies.
 
 ![Visual Test Results on Augmented-trained Hybrid Model](results/visual_test_results_augmented.png)
 
-#### 4.3 Final Conclusion
+This led to the conclusion that this specific fragile watermarking method, even when analyzed by a hybrid model, is not robust enough for the physical print-and-scan-and-verify workflow.
 
-The primary goal of this project is to enable reliable inference from a camera. After multiple experiments, it is clear that the current fragile watermarking method is not robust enough to survive the physical print-and-scan process. The distortions introduced by printing and camera capture effectively destroy the pattern, making it impossible for the model to distinguish between a genuine item and a forgery.
+### 5. Final Validation with CNN Model and Size Dependency Analysis
 
-To achieve the project's goal, a new type of watermark is necessary—one that is strong enough to be detected after printing and scanning, yet fragile enough to be destroyed upon photocopying. The design of such a watermark is a significant challenge and an active topic of research in the fields of computer vision and document security. Finding a viable solution will require further investigation and time.
+Given that the primary goal is camera-based inference and the hybrid models did not yield satisfactory results on real-world data, we returned to the original CNN-only model which had shown the most promise. Live tests were conducted using the web camera application to validate its real-world performance.
+
+#### 5.1 Successful Verification on Standard-Sized QR Codes
+The results were positive. When testing with a standard-sized QR code printed on A4 paper, the model could successfully distinguish between a genuine print and its copies.
+
+*   **Genuine:** A QR code printed from the original source (`Test_origin.jpg`) was correctly identified as GENUINE.
+*   **Copies:** First and second-generation copies (`Test_Onecopy.jpg`, `Test_Doublecopy.jpg`) were correctly identified as counterfeit.
+
+This demonstrates that the model is capable of identifying the degradation of the watermark pattern caused by photocopying under these conditions.
+
+| Genuine Original | 1st Generation Copy | 2nd Generation Copy |
+| :---: | :---: | :---: |
+| ![Genuine Verification](results/Test_origin.jpg) | ![1st Copy Verification](results/Test_Onecopy.jpg) | ![2nd Copy Verification](results/Test_Doublecopy.jpg) |
+
+#### 5.2 Size Dependency and Failure on Large QR Codes
+A critical limitation was discovered when testing with a larger-sized QR code. When a large QR was printed and then copied, **both the original and the copy were classified as GENUINE.**
+
+| Large Genuine Original | Large Copy |
+| :---: | :---: |
+| ![Large Genuine QR](results/BigQR_Origin.jpg) | ![Large Copied QR](results/BigQR_Copy.jpg) |
+
+**Analysis:**
+The physical size of the QR code is a critical variable. When a larger QR code is copied, the embedded fragile patterns are also scaled up, making them more robust and less likely to be destroyed by the copying process.
+
+*   **On the large copy**, a significant number of watermark patterns remain visually identifiable, which is why the model classifies it as genuine.
+*   **On the small copy**, these patterns are almost completely eliminated or reduced to indistinct dots, allowing the model to correctly identify it as a fake.
+
+#### 5.3 Final Conclusion
+The CNN-only model is effective for verifying QR codes on standard A4-sized paper. It can reliably distinguish between genuine prints and copies at this scale. However, the model's validity is highly dependent on the physical print size. It is not effective for larger QR codes where the watermark pattern survives the copying process. This means the current system is viable but requires a controlled print size for reliable verification.
 
 ## How to Use This Project
 
