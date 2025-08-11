@@ -241,7 +241,11 @@ This outcome strongly suggests that the model has not learned the *specific* fra
 The initial analysis showed that the CNN model was not learning the specific watermark. The next logical step was to create a model that could more directly analyze the watermark's quantitative features.
 
 #### 4.1 Experiment 1: Hybrid Model on Digital Data
-To force the model to learn the specific patterns, a hybrid approach was developed. This multi-input model was trained not only on the image data but also on the three signature values (`phash`, `hf_strength`, `fft_peak_ratio`) associated with each digital image. The model was trained on the `secured` (True) and `simulated_copies` (False) datasets. While training results were excellent, a visual test showed that the model failed completely on real-world images (photos taken with a camera), classifying all of them as `false`. This confirmed that the fragile watermark was being destroyed by the print-and-scan process.
+To force the model to learn the specific patterns, a hybrid approach was developed. This multi-input model was trained not only on the image data but also on the three signature values (`phash`, `hf_strength`, `fft_peak_ratio`) associated with each digital image. The model was trained on the `secured` (True) and `simulated_copies` (False) datasets. The training itself was highly successful, achieving near-perfect validation accuracy as shown below.
+
+![Digital Hybrid Model Training History](results/training_history_multi_input.png)
+
+However, despite the excellent training results, a visual test showed that the model failed completely on real-world images (photos taken with a camera), classifying all of them as `false`. This confirmed that the fragile watermark was being destroyed by the print-and-scan process.
 
 ![Visual Test Results on Digital-trained Hybrid Model](results/visual_test_results_multi_input.png)
 
