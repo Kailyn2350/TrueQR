@@ -284,6 +284,16 @@ The physical size of the QR code is a critical variable. When a larger QR code i
 #### 5.3 Final Conclusion
 The CNN-only model is effective for verifying QR codes on standard A4-sized paper. It can reliably distinguish between genuine prints and copies at this scale. However, the model's validity is highly dependent on the physical print size. It is not effective for larger QR codes where the watermark pattern survives the copying process. This means the current system is viable but requires a controlled print size for reliable verification.
 
+## Future Potential
+
+The ultimate goal of this research is to develop a watermark that achieves two conflicting yet essential properties:
+1.  **Perfect Robustness:** The watermark should be consistently detectable by a standard camera after being printed from a genuine digital source.
+2.  **Perfect Fragility:** The watermark should be completely destroyed or altered beyond recognition when the genuine print is photocopied.
+
+In essence, the challenge is to develop a technology that can reliably recognize a pristine QR code's unique, embedded hash watermark while guaranteeing its destruction upon replication.
+
+This remains an active and challenging area of research. While developing such a system is a significant undertaking for an individual researcher due to time and resource constraints, we believe it is an achievable technology. Further research into advanced signal processing, novel materials, or machine learning models trained to generate optimal patterns could unlock this potential.
+
 ## How to Use This Project
 
 ### Prerequisites
