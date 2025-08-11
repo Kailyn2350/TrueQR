@@ -1,59 +1,98 @@
 import os
+import json
+import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import sys
+from sklearn.model_selection import train_test_split
 
 # --- Configuration ---
-# Set UTF-8 encoding for stdout
 sys.stdout.reconfigure(encoding='utf-8')
 
-# Get the root directory of the project (one level up from src)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.join(BASE_DIR, "..")
 
-DATA_DIR = os.path.join(ROOT_DIR, "augmented_data")
+DATA_JSON_PATH = os.path.join(ROOT_DIR, "config", "training_data.json")
 RESULTS_DIR = os.path.join(ROOT_DIR, "results")
 
 # Model parameters
 IMG_HEIGHT = 224
 IMG_WIDTH = 224
 BATCH_SIZE = 32
-EPOCHS = 15
+EPOCHS = 25 # Increased epochs for potentially more complex task
 VALIDATION_SPLIT = 0.2
 
-# --- 1. Load Data ---
-print("Loading and preparing datasets...")
+# --- 1. Load Data from JSON ---
+print("Loading data from JSON...")
+with open(DATA_JSON_PATH, 'r') as f:
+    all_data = json.load(f)['data']
 
-# Create the training dataset
-train_ds = tf.keras.utils.image_dataset_from_directory(
-    DATA_DIR,
-    validation_split=VALIDATION_SPLIT,
-    subset="training",
-    seed=123,
-    image_size=(IMG_HEIGHT, IMG_WIDTH),
-    batch_size=BATCH_SIZE
+# Separate data and labels
+file_paths = [item['file_path'] for item in all_data]
+labels = [item['label'] for item in all_data]
+signatures = np.array([[item['signature']['phash'], item['signature']['hf_strength'], item['signature']['fft_peak_ratio']] for item in all_data])
+
+# --- 2. Normalize Signatures ---
+print("Normalizing signature data...")
+mean = np.mean(signatures, axis=0)
+std = np.std(signatures, axis=0)
+
+# Avoid division by zero if a feature has no variance
+std[std == 0] = 1.0 
+
+normalized_signatures = (signatures - mean) / std
+
+# Save normalization params for inference
+norm_params = {'mean': mean.tolist(), 'std': std.tolist()}
+
+norm_params_path = os.path.join(RESULTS_DIR, 'signature_normalization.json')
+os.makedirs(RESULTS_DIR, exist_ok=True)
+with open(norm_params_path, 'w') as f:
+    json.dump(norm_params, f)
+print(f"Saved signature normalization parameters to {norm_params_path}")
+
+# --- 3. Create Datasets ---
+print("Creating train and validation datasets...")
+
+# Split data into training and validation sets
+train_paths, val_paths, train_sigs, val_sigs, train_labels, val_labels = train_test_split(
+    file_paths, normalized_signatures, labels, 
+    test_size=VALIDATION_SPLIT, 
+    random_state=42, 
+    stratify=labels
 )
 
-# Create the validation dataset
-val_ds = tf.keras.utils.image_dataset_from_directory(
-    DATA_DIR,
-    validation_split=VALIDATION_SPLIT,
-    subset="validation",
-    seed=123,
-    image_size=(IMG_HEIGHT, IMG_WIDTH),
-    batch_size=BATCH_SIZE
-)
+def load_and_preprocess_image(path):
+    img = tf.io.read_file(path)
+    img = tf.image.decode_png(img, channels=3)
+    img = tf.image.resize(img, [IMG_HEIGHT, IMG_WIDTH])
+    return img
 
-class_names = train_ds.class_names
-print(f"Classes found: {class_names}")
+def create_dataset(paths, signatures, labels):
+    path_ds = tf.data.Dataset.from_tensor_slices(paths)
+    image_ds = path_ds.map(load_and_preprocess_image, num_parallel_calls=tf.data.AUTOTUNE)
+    
+    signature_ds = tf.data.Dataset.from_tensor_slices(signatures.astype(np.float32))
+    
+    # Combine image and signature datasets
+    input_ds = tf.data.Dataset.zip((image_ds, signature_ds))
+    
+    label_ds = tf.data.Dataset.from_tensor_slices(labels)
+    
+    return tf.data.Dataset.zip((input_ds, label_ds))
 
+train_ds = create_dataset(train_paths, train_sigs, train_labels)
+val_ds = create_dataset(val_paths, val_sigs, val_labels)
+
+# Batch and prefetch
 AUTOTUNE = tf.data.AUTOTUNE
-train_ds = train_ds.cache().shuffle(1000).prefetch(buffer_size=AUTOTUNE)
-val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+train_ds = train_ds.shuffle(buffer_size=len(train_paths)).batch(BATCH_SIZE).prefetch(buffer_size=AUTOTUNE)
+val_ds = val_ds.batch(BATCH_SIZE).prefetch(buffer_size=AUTOTUNE)
 
-# --- 2. Build Model (Transfer Learning) ---
-print("Building model with MobileNetV2 base...")
+# --- 4. Build Multi-input Model ---
+print("Building multi-input model...")
 
+# Image Input Branch
 preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
 base_model = tf.keras.applications.MobileNetV2(
     input_shape=(IMG_HEIGHT, IMG_WIDTH, 3),
@@ -62,16 +101,29 @@ base_model = tf.keras.applications.MobileNetV2(
 )
 base_model.trainable = False
 
-inputs = tf.keras.Input(shape=(IMG_HEIGHT, IMG_WIDTH, 3))
-x = preprocess_input(inputs)
+image_input = tf.keras.Input(shape=(IMG_HEIGHT, IMG_WIDTH, 3), name='image_input')
+x = preprocess_input(image_input)
 x = base_model(x, training=False)
 x = tf.keras.layers.GlobalAveragePooling2D()(x)
-x = tf.keras.layers.Dropout(0.2)(x)
-outputs = tf.keras.layers.Dense(1, activation='sigmoid')(x)
+x = tf.keras.Model(inputs=image_input, outputs=x)
 
-model = tf.keras.Model(inputs, outputs)
+# Signature Input Branch
+signature_input = tf.keras.Input(shape=(3,), name='signature_input')
+y = tf.keras.layers.Dense(16, activation='relu')(signature_input)
+y = tf.keras.layers.Dense(8, activation='relu')(y)
+y = tf.keras.Model(inputs=signature_input, outputs=y)
 
-# --- 3. Compile Model ---
+# Concatenate branches
+combined = tf.keras.layers.concatenate([x.output, y.output])
+
+# Classifier Head
+z = tf.keras.layers.Dropout(0.3)(combined)
+z = tf.keras.layers.Dense(64, activation='relu')(z)
+z = tf.keras.layers.Dense(1, activation='sigmoid')(z)
+
+model = tf.keras.Model(inputs=[x.input, y.input], outputs=z)
+
+# --- 5. Compile Model ---
 print("Compiling model...")
 model.compile(
     optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
@@ -81,20 +133,26 @@ model.compile(
 
 model.summary()
 
-# --- 4. Train Model ---
+# --- 6. Train Model ---
 print(f"\nStarting training for {EPOCHS} epochs...")
+
+# Need to adapt the dataset to return a dictionary of inputs
+def adapt_dataset(inputs, label):
+    image_tensor, signature_tensor = inputs
+    return {'image_input': image_tensor, 'signature_input': signature_tensor}, label
+
+train_ds_adapted = train_ds.map(adapt_dataset)
+val_ds_adapted = val_ds.map(adapt_dataset)
+
 history = model.fit(
-    train_ds,
-    validation_data=val_ds,
+    train_ds_adapted,
+    validation_data=val_ds_adapted,
     epochs=EPOCHS
 )
 print("\nTraining complete.")
 
-# --- 5. Evaluate and Save ---
+# --- 7. Evaluate and Save ---
 print("Evaluating model and saving results...")
-
-# Ensure results directory exists
-os.makedirs(RESULTS_DIR, exist_ok=True)
 
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
@@ -118,10 +176,10 @@ plt.title('Training and Validation Loss')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 
-history_plot_path = os.path.join(RESULTS_DIR, 'training_history.png')
+history_plot_path = os.path.join(RESULTS_DIR, 'training_history_multi_input.png')
 plt.savefig(history_plot_path)
 print(f"Saved training history plot to: {history_plot_path}")
 
-model_save_path = os.path.join(RESULTS_DIR, 'true_qr_classifier.keras')
+model_save_path = os.path.join(RESULTS_DIR, 'true_qr_classifier_augmented.keras')
 model.save(model_save_path)
 print(f"Saved trained model to: {model_save_path}")

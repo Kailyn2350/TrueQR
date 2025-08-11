@@ -1,0 +1,1120 @@
+{
+  "data": [
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (1).png",
+      "signature": {
+        "phash": 10616676822620961213,
+        "hf_strength": 0.573486328125,
+        "fft_peak_ratio": 26.274961471557617
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (10).png",
+      "signature": {
+        "phash": 10615550939691286441,
+        "hf_strength": 0.5401153564453125,
+        "fft_peak_ratio": 10.665802955627441
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (11).png",
+      "signature": {
+        "phash": 9463772927330156207,
+        "hf_strength": 0.5684661865234375,
+        "fft_peak_ratio": 3.048715829849243
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (12).png",
+      "signature": {
+        "phash": 10544635764222521263,
+        "hf_strength": 0.6132965087890625,
+        "fft_peak_ratio": 6.453563690185547
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (13).png",
+      "signature": {
+        "phash": 10544618163404406191,
+        "hf_strength": 0.6279754638671875,
+        "fft_peak_ratio": 9.897298812866211
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (14).png",
+      "signature": {
+        "phash": 10544056295614840233,
+        "hf_strength": 0.6986846923828125,
+        "fft_peak_ratio": 8.4894380569458
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (15).png",
+      "signature": {
+        "phash": 9390570776169344941,
+        "hf_strength": 0.5433197021484375,
+        "fft_peak_ratio": 5.00078010559082
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (16).png",
+      "signature": {
+        "phash": 10400520550351306669,
+        "hf_strength": 0.67431640625,
+        "fft_peak_ratio": 8.054875373840332
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (17).png",
+      "signature": {
+        "phash": 10544637937417387693,
+        "hf_strength": 0.6884307861328125,
+        "fft_peak_ratio": 18.297555923461914
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (18).png",
+      "signature": {
+        "phash": 9391697740960362413,
+        "hf_strength": 0.5078277587890625,
+        "fft_peak_ratio": 3.4091036319732666
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (19).png",
+      "signature": {
+        "phash": 10543493345660825517,
+        "hf_strength": 0.533416748046875,
+        "fft_peak_ratio": 6.378635883331299
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (2).png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.6903228759765625,
+        "fft_peak_ratio": 7.943517684936523
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (20).png",
+      "signature": {
+        "phash": 10400520550150569641,
+        "hf_strength": 0.55853271484375,
+        "fft_peak_ratio": 9.769268035888672
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (21).png",
+      "signature": {
+        "phash": 10400520550158434220,
+        "hf_strength": 0.6349639892578125,
+        "fft_peak_ratio": 23.755756378173828
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (22).png",
+      "signature": {
+        "phash": 9463769628834987949,
+        "hf_strength": 0.68841552734375,
+        "fft_peak_ratio": 13.978093147277832
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (23).png",
+      "signature": {
+        "phash": 10688748744867639212,
+        "hf_strength": 0.5823822021484375,
+        "fft_peak_ratio": 12.892632484436035
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (24).png",
+      "signature": {
+        "phash": 10832870521188450220,
+        "hf_strength": 0.5316009521484375,
+        "fft_peak_ratio": 9.4342041015625
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (25).png",
+      "signature": {
+        "phash": 10400522732171820989,
+        "hf_strength": 0.6631927490234375,
+        "fft_peak_ratio": 4.361364841461182
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (26).png",
+      "signature": {
+        "phash": 10832866097359552429,
+        "hf_strength": 0.5324859619140625,
+        "fft_peak_ratio": 3.79374623298645
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (27).png",
+      "signature": {
+        "phash": 10400524948381105325,
+        "hf_strength": 0.576629638671875,
+        "fft_peak_ratio": 2.085556745529175
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (28).png",
+      "signature": {
+        "phash": 10398831700506836911,
+        "hf_strength": 0.677490234375,
+        "fft_peak_ratio": 11.357670783996582
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (29).png",
+      "signature": {
+        "phash": 9463759715799006637,
+        "hf_strength": 0.50897216796875,
+        "fft_peak_ratio": 11.742539405822754
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (3).png",
+      "signature": {
+        "phash": 10616676822358948271,
+        "hf_strength": 0.575103759765625,
+        "fft_peak_ratio": 13.731842041015625
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (30).png",
+      "signature": {
+        "phash": 10832870521253461932,
+        "hf_strength": 0.50738525390625,
+        "fft_peak_ratio": 9.34600830078125
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (4).png",
+      "signature": {
+        "phash": 10616676822353051065,
+        "hf_strength": 0.6275482177734375,
+        "fft_peak_ratio": 18.803415298461914
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (5).png",
+      "signature": {
+        "phash": 10616694414538571193,
+        "hf_strength": 0.6313629150390625,
+        "fft_peak_ratio": 11.898675918579102
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (6).png",
+      "signature": {
+        "phash": 10616676822361046441,
+        "hf_strength": 0.6317291259765625,
+        "fft_peak_ratio": 9.55229377746582
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (7).png",
+      "signature": {
+        "phash": 10616692215783882153,
+        "hf_strength": 0.6180419921875,
+        "fft_peak_ratio": 9.359440803527832
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (8).png",
+      "signature": {
+        "phash": 10616676822358949293,
+        "hf_strength": 0.6444091796875,
+        "fft_peak_ratio": 6.419002056121826
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode (9).png",
+      "signature": {
+        "phash": 1393304802934914223,
+        "hf_strength": 0.6230010986328125,
+        "fft_peak_ratio": 9.63585376739502
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\True_data\\secured\\ecoqcode.png",
+      "signature": {
+        "phash": 9463755317746204093,
+        "hf_strength": 0.5068206787109375,
+        "fft_peak_ratio": 5.581261157989502
+      },
+      "label": 1
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (1)_copy1.png",
+      "signature": {
+        "phash": 9463755317754068413,
+        "hf_strength": 0.1273651123046875,
+        "fft_peak_ratio": 3.467132806777954
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (1)_copy2.png",
+      "signature": {
+        "phash": 10616676822620961213,
+        "hf_strength": 0.0527191162109375,
+        "fft_peak_ratio": 12.749381065368652
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (1)_copy3.png",
+      "signature": {
+        "phash": 9463755317754068413,
+        "hf_strength": 0.075653076171875,
+        "fft_peak_ratio": 1.6048247814178467
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (10)_copy1.png",
+      "signature": {
+        "phash": 9462629435084570537,
+        "hf_strength": 0.088165283203125,
+        "fft_peak_ratio": 1.4782458543777466
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (10)_copy2.png",
+      "signature": {
+        "phash": 9462629435092828073,
+        "hf_strength": 0.0690765380859375,
+        "fft_peak_ratio": 3.6086108684539795
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (10)_copy3.png",
+      "signature": {
+        "phash": 10616676839597866921,
+        "hf_strength": 0.0771484375,
+        "fft_peak_ratio": 7.007298946380615
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (11)_copy1.png",
+      "signature": {
+        "phash": 9463772927338544303,
+        "hf_strength": 0.1041107177734375,
+        "fft_peak_ratio": 3.4379894733428955
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (11)_copy2.png",
+      "signature": {
+        "phash": 9463772927338544303,
+        "hf_strength": 0.087921142578125,
+        "fft_peak_ratio": 3.5896852016448975
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (11)_copy3.png",
+      "signature": {
+        "phash": 9463772927338544303,
+        "hf_strength": 0.04522705078125,
+        "fft_peak_ratio": 4.415205955505371
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (12)_copy1.png",
+      "signature": {
+        "phash": 10544633565207654319,
+        "hf_strength": 0.0704803466796875,
+        "fft_peak_ratio": 0.5024197101593018
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (12)_copy2.png",
+      "signature": {
+        "phash": 10544635764222521263,
+        "hf_strength": 0.0793304443359375,
+        "fft_peak_ratio": 0.9890308380126953
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (12)_copy3.png",
+      "signature": {
+        "phash": 10544635764222521263,
+        "hf_strength": 0.0636138916015625,
+        "fft_peak_ratio": 3.8362174034118652
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (13)_copy1.png",
+      "signature": {
+        "phash": 10544618163404406191,
+        "hf_strength": 0.0288238525390625,
+        "fft_peak_ratio": 5.249446868896484
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (13)_copy2.png",
+      "signature": {
+        "phash": 10544618163404406191,
+        "hf_strength": 0.1333160400390625,
+        "fft_peak_ratio": 5.40902853012085
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (13)_copy3.png",
+      "signature": {
+        "phash": 9679927052129139887,
+        "hf_strength": 0.1202392578125,
+        "fft_peak_ratio": 1.0894544124603271
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (14)_copy1.png",
+      "signature": {
+        "phash": 9463755334932233641,
+        "hf_strength": 0.1063690185546875,
+        "fft_peak_ratio": 1.6236653327941895
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (14)_copy2.png",
+      "signature": {
+        "phash": 10544056295614840233,
+        "hf_strength": 0.123992919921875,
+        "fft_peak_ratio": 6.485213279724121
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (14)_copy3.png",
+      "signature": {
+        "phash": 10544056295614840233,
+        "hf_strength": 0.0878143310546875,
+        "fft_peak_ratio": 6.379076957702637
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (15)_copy1.png",
+      "signature": {
+        "phash": 9390575139847733165,
+        "hf_strength": 0.0951690673828125,
+        "fft_peak_ratio": 0.6509348750114441
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (15)_copy2.png",
+      "signature": {
+        "phash": 9390575139847733165,
+        "hf_strength": 0.0738677978515625,
+        "fft_peak_ratio": 0.4198928773403168
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (15)_copy3.png",
+      "signature": {
+        "phash": 9390570776169344941,
+        "hf_strength": 0.0485382080078125,
+        "fft_peak_ratio": 2.312185287475586
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (16)_copy1.png",
+      "signature": {
+        "phash": 9319656639782387629,
+        "hf_strength": 0.162994384765625,
+        "fft_peak_ratio": 0.3561173975467682
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (16)_copy2.png",
+      "signature": {
+        "phash": 9319656639782387629,
+        "hf_strength": 0.1060791015625,
+        "fft_peak_ratio": 0.42082884907722473
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (16)_copy3.png",
+      "signature": {
+        "phash": 9319656639782387629,
+        "hf_strength": 0.1639862060546875,
+        "fft_peak_ratio": 0.06385497003793716
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (17)_copy1.png",
+      "signature": {
+        "phash": 10544633539440082601,
+        "hf_strength": 0.0693511962890625,
+        "fft_peak_ratio": 0.7613121271133423
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (17)_copy2.png",
+      "signature": {
+        "phash": 10544633539440082093,
+        "hf_strength": 0.0250396728515625,
+        "fft_peak_ratio": 4.137020111083984
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (17)_copy3.png",
+      "signature": {
+        "phash": 10544637937417387693,
+        "hf_strength": 0.1068115234375,
+        "fft_peak_ratio": 8.93935775756836
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (18)_copy1.png",
+      "signature": {
+        "phash": 9391697740960362413,
+        "hf_strength": 0.0581207275390625,
+        "fft_peak_ratio": 0.5816274881362915
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (18)_copy2.png",
+      "signature": {
+        "phash": 10471435751622438829,
+        "hf_strength": 0.070831298828125,
+        "fft_peak_ratio": 0.9850649237632751
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (18)_copy3.png",
+      "signature": {
+        "phash": 10471435751622438829,
+        "hf_strength": 0.062652587890625,
+        "fft_peak_ratio": 0.5592356324195862
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (19)_copy1.png",
+      "signature": {
+        "phash": 10543493345660825517,
+        "hf_strength": 0.025604248046875,
+        "fft_peak_ratio": 2.355536699295044
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (19)_copy2.png",
+      "signature": {
+        "phash": 10543493345660366765,
+        "hf_strength": 0.0588226318359375,
+        "fft_peak_ratio": 2.9080684185028076
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (19)_copy3.png",
+      "signature": {
+        "phash": 10399378157585035181,
+        "hf_strength": 0.0428314208984375,
+        "fft_peak_ratio": 0.617945671081543
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (2)_copy1.png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.084930419921875,
+        "fft_peak_ratio": 1.333864450454712
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (2)_copy2.png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.096893310546875,
+        "fft_peak_ratio": 1.0841219425201416
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (2)_copy3.png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.059234619140625,
+        "fft_peak_ratio": 1.8110449314117432
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (20)_copy1.png",
+      "signature": {
+        "phash": 10400520550166822569,
+        "hf_strength": 0.085693359375,
+        "fft_peak_ratio": 1.7178374528884888
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (20)_copy2.png",
+      "signature": {
+        "phash": 10400520550150569641,
+        "hf_strength": 0.06939697265625,
+        "fft_peak_ratio": 4.789712429046631
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (20)_copy3.png",
+      "signature": {
+        "phash": 10400520550150569641,
+        "hf_strength": 0.0736541748046875,
+        "fft_peak_ratio": 5.930681228637695
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (21)_copy1.png",
+      "signature": {
+        "phash": 10400520550158434220,
+        "hf_strength": 0.075042724609375,
+        "fft_peak_ratio": 15.204497337341309
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (21)_copy2.png",
+      "signature": {
+        "phash": 10400520550158434220,
+        "hf_strength": 0.0404815673828125,
+        "fft_peak_ratio": 15.776456832885742
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (21)_copy3.png",
+      "signature": {
+        "phash": 10400520550158434220,
+        "hf_strength": 0.0517578125,
+        "fft_peak_ratio": 15.422621726989746
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (22)_copy1.png",
+      "signature": {
+        "phash": 9319656639782387629,
+        "hf_strength": 0.110260009765625,
+        "fft_peak_ratio": 1.2237253189086914
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (22)_copy2.png",
+      "signature": {
+        "phash": 9463769628834987949,
+        "hf_strength": 0.09130859375,
+        "fft_peak_ratio": 8.174774169921875
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (22)_copy3.png",
+      "signature": {
+        "phash": 9319656639782387629,
+        "hf_strength": 0.110504150390625,
+        "fft_peak_ratio": 4.532216548919678
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (23)_copy1.png",
+      "signature": {
+        "phash": 10688753159892692908,
+        "hf_strength": 0.0333709716796875,
+        "fft_peak_ratio": 0.5883912444114685
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (23)_copy2.png",
+      "signature": {
+        "phash": 10688748744838279084,
+        "hf_strength": 0.039886474609375,
+        "fft_peak_ratio": 7.610175132751465
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (23)_copy3.png",
+      "signature": {
+        "phash": 10688753160024813484,
+        "hf_strength": 0.0941314697265625,
+        "fft_peak_ratio": 1.1667089462280273
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (24)_copy1.png",
+      "signature": {
+        "phash": 10832870521196838316,
+        "hf_strength": 0.057586669921875,
+        "fft_peak_ratio": 3.834078073501587
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (24)_copy2.png",
+      "signature": {
+        "phash": 9679949016648712108,
+        "hf_strength": 0.044952392578125,
+        "fft_peak_ratio": 1.3588298559188843
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (24)_copy3.png",
+      "signature": {
+        "phash": 9679949016648712108,
+        "hf_strength": 0.0717620849609375,
+        "fft_peak_ratio": 1.6688653230667114
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (25)_copy1.png",
+      "signature": {
+        "phash": 10400522732171820989,
+        "hf_strength": 0.0121612548828125,
+        "fft_peak_ratio": 2.4038383960723877
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (25)_copy2.png",
+      "signature": {
+        "phash": 10688753108323467197,
+        "hf_strength": 0.0781097412109375,
+        "fft_peak_ratio": 0.9214327931404114
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (25)_copy3.png",
+      "signature": {
+        "phash": 10688753108323467197,
+        "hf_strength": 0.026885986328125,
+        "fft_peak_ratio": 1.1275041103363037
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (26)_copy1.png",
+      "signature": {
+        "phash": 10832870495405801389,
+        "hf_strength": 0.0388946533203125,
+        "fft_peak_ratio": 1.8868104219436646
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (26)_copy2.png",
+      "signature": {
+        "phash": 10832868296399323053,
+        "hf_strength": 0.0671539306640625,
+        "fft_peak_ratio": 0.9905261993408203
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (26)_copy3.png",
+      "signature": {
+        "phash": 10832870495422577581,
+        "hf_strength": 0.0516357421875,
+        "fft_peak_ratio": 1.2061820030212402
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (27)_copy1.png",
+      "signature": {
+        "phash": 10400524948381105325,
+        "hf_strength": 0.123046875,
+        "fft_peak_ratio": 3.102794885635376
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (27)_copy2.png",
+      "signature": {
+        "phash": 10688748727513906349,
+        "hf_strength": 0.07794189453125,
+        "fft_peak_ratio": 0.7127652764320374
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (27)_copy3.png",
+      "signature": {
+        "phash": 10688748727513906349,
+        "hf_strength": 0.0302734375,
+        "fft_peak_ratio": 1.8248871564865112
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (28)_copy1.png",
+      "signature": {
+        "phash": 10401081301095940015,
+        "hf_strength": 0.114166259765625,
+        "fft_peak_ratio": 1.3901338577270508
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (28)_copy2.png",
+      "signature": {
+        "phash": 10398831700506836911,
+        "hf_strength": 0.13568115234375,
+        "fft_peak_ratio": 7.476876258850098
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (28)_copy3.png",
+      "signature": {
+        "phash": 10398829501283303343,
+        "hf_strength": 0.0474853515625,
+        "fft_peak_ratio": 0.8053551912307739
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (29)_copy1.png",
+      "signature": {
+        "phash": 9463759715799006637,
+        "hf_strength": 0.0931243896484375,
+        "fft_peak_ratio": 6.580311298370361
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (29)_copy2.png",
+      "signature": {
+        "phash": 9463759715799006637,
+        "hf_strength": 0.044403076171875,
+        "fft_peak_ratio": 5.948817729949951
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (29)_copy3.png",
+      "signature": {
+        "phash": 9751985693904207277,
+        "hf_strength": 0.107818603515625,
+        "fft_peak_ratio": 0.7507432699203491
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (3)_copy1.png",
+      "signature": {
+        "phash": 10616676822358948271,
+        "hf_strength": 0.06024169921875,
+        "fft_peak_ratio": 8.141420364379883
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (3)_copy2.png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.0781707763671875,
+        "fft_peak_ratio": 1.7468127012252808
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (3)_copy3.png",
+      "signature": {
+        "phash": 9463755317754198447,
+        "hf_strength": 0.082763671875,
+        "fft_peak_ratio": 1.2919949293136597
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (30)_copy1.png",
+      "signature": {
+        "phash": 10832870521387679148,
+        "hf_strength": 0.0866241455078125,
+        "fft_peak_ratio": 4.2018961906433105
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (30)_copy2.png",
+      "signature": {
+        "phash": 9679949016780832684,
+        "hf_strength": 0.0631103515625,
+        "fft_peak_ratio": 0.4419408440589905
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (30)_copy3.png",
+      "signature": {
+        "phash": 10832870521387679148,
+        "hf_strength": 0.0817718505859375,
+        "fft_peak_ratio": 7.035289764404297
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (4)_copy1.png",
+      "signature": {
+        "phash": 10616676822353051065,
+        "hf_strength": 0.0897216796875,
+        "fft_peak_ratio": 1.470823049545288
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (4)_copy2.png",
+      "signature": {
+        "phash": 10616676822353051065,
+        "hf_strength": 0.0669403076171875,
+        "fft_peak_ratio": 2.4852030277252197
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (4)_copy3.png",
+      "signature": {
+        "phash": 10616676822353051065,
+        "hf_strength": 0.1617584228515625,
+        "fft_peak_ratio": 1.3947628736495972
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (5)_copy1.png",
+      "signature": {
+        "phash": 10616694414538571193,
+        "hf_strength": 0.0847015380859375,
+        "fft_peak_ratio": 6.989097595214844
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (5)_copy2.png",
+      "signature": {
+        "phash": 10616694414807006633,
+        "hf_strength": 0.10565185546875,
+        "fft_peak_ratio": 2.190253734588623
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (5)_copy3.png",
+      "signature": {
+        "phash": 10616694414538571193,
+        "hf_strength": 0.052764892578125,
+        "fft_peak_ratio": 0.6572570204734802
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (6)_copy1.png",
+      "signature": {
+        "phash": 10616676822361046441,
+        "hf_strength": 0.0461883544921875,
+        "fft_peak_ratio": 5.592767715454102
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (6)_copy2.png",
+      "signature": {
+        "phash": 10616676822360915373,
+        "hf_strength": 0.06793212890625,
+        "fft_peak_ratio": 1.476930022239685
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (6)_copy3.png",
+      "signature": {
+        "phash": 10616676822360915373,
+        "hf_strength": 0.0449981689453125,
+        "fft_peak_ratio": 0.7122285962104797
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (7)_copy1.png",
+      "signature": {
+        "phash": 10616676822360915373,
+        "hf_strength": 0.091888427734375,
+        "fft_peak_ratio": 0.4716883897781372
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (7)_copy2.png",
+      "signature": {
+        "phash": 10616676822360915373,
+        "hf_strength": 0.073974609375,
+        "fft_peak_ratio": 0.9162150621414185
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (7)_copy3.png",
+      "signature": {
+        "phash": 10616676822360915373,
+        "hf_strength": 0.1826171875,
+        "fft_peak_ratio": 1.3005328178405762
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (8)_copy1.png",
+      "signature": {
+        "phash": 10616676822358949293,
+        "hf_strength": 0.01959228515625,
+        "fft_peak_ratio": 2.6118788719177246
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (8)_copy2.png",
+      "signature": {
+        "phash": 10616676822358949293,
+        "hf_strength": 0.0692596435546875,
+        "fft_peak_ratio": 2.0242340564727783
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (8)_copy3.png",
+      "signature": {
+        "phash": 10616676822358949293,
+        "hf_strength": 0.024322509765625,
+        "fft_peak_ratio": 3.257272720336914
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (9)_copy1.png",
+      "signature": {
+        "phash": 10616676839789624495,
+        "hf_strength": 0.084381103515625,
+        "fft_peak_ratio": 5.512734889984131
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (9)_copy2.png",
+      "signature": {
+        "phash": 9463755334931184815,
+        "hf_strength": 0.0695953369140625,
+        "fft_peak_ratio": 0.59486323595047
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode (9)_copy3.png",
+      "signature": {
+        "phash": 9463755335182843055,
+        "hf_strength": 0.0939178466796875,
+        "fft_peak_ratio": 4.592874050140381
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode_copy1.png",
+      "signature": {
+        "phash": 9751985693897915833,
+        "hf_strength": 0.058807373046875,
+        "fft_peak_ratio": 0.8875073790550232
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode_copy2.png",
+      "signature": {
+        "phash": 9463755317746204093,
+        "hf_strength": 0.0663909912109375,
+        "fft_peak_ratio": 0.12555308640003204
+      },
+      "label": 0
+    },
+    {
+      "file_path": "C:\\Users\\seoks\\Desktop\\Util\\TrueQR\\src\\..\\False_data\\simulated_copies\\ecoqcode_copy3.png",
+      "signature": {
+        "phash": 9463755317746204093,
+        "hf_strength": 0.0764312744140625,
+        "fft_peak_ratio": 2.048902988433838
+      },
+      "label": 0
+    }
+  ]
+}

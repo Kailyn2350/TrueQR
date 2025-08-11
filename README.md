@@ -226,12 +226,35 @@ The results, shown in the image below, revealed a critical flaw in the model's l
 
 This outcome strongly suggests that the model has not learned the *specific* fragile watermark pattern we embedded. Instead, it appears to be making predictions based on more general features that distinguish a photo of a print from a photo of a copy (e.g., texture, moiré patterns, subtle lighting changes). In essence, it is detecting the presence of *any* print-like pattern, not the *correct* one.
 
-**Future Work:**
-To address this, the next phase of development will focus on retraining the model to learn the precise cryptographic pattern. The training dataset will be refined to include:
-*   **Positive Class:** The original, digitally generated `secured` images.
-*   **Negative Class:** The `simulated_copies` images.
+### 4. Further Experiments and Final Conclusion
 
-By training on this digital-only dataset, we aim to force the model to learn the specific, subtle artifacts of our intended security pattern, making it a true watermark detector.
+The initial analysis showed that the CNN model was not learning the specific watermark. The next logical step was to create a model that could more directly analyze the watermark's quantitative features.
+
+#### 4.1 Experiment 1: Hybrid Model on Digital Data
+
+To force the model to learn the specific patterns, a hybrid approach was developed. This multi-input model was trained not only on the image data but also on the three signature values (`phash`, `hf_strength`, `fft_peak_ratio`) associated with each digital image. The model was trained on the `secured` (True) and `simulated_copies` (False) datasets.
+
+The training results were excellent, achieving nearly 100% validation accuracy.
+
+![Model Training History](results/training_history_multi_input.png)
+
+A visual test confirmed the results. The model perfectly distinguished between the original digital files and their simulated copies. However, when tested against real-world images (photos taken with a camera), it failed completely, classifying all of them as `false`. This confirmed that the fragile watermark was being destroyed by the print-and-scan process, even before the model saw it.
+
+![Visual Test Results on Digital-trained Hybrid Model](results/visual_test_results_multi_input.png)
+
+#### 4.2 Experiment 2: Hybrid Model on Real-World Data
+
+Given the failure on camera images, the next experiment was to train the same hybrid model on a more realistic dataset. The model was retrained using the `augmented_data` folder, which contains photos of genuine prints (`true`) and photos of copies (`false`), along with their corresponding signature values.
+
+The results, however, were largely the same. The model learned to classify the pristine digital QR codes correctly but failed to find any meaningful distinction between the photos of genuine prints and the photos of copies.
+
+![Visual Test Results on Augmented-trained Hybrid Model](results/visual_test_results_augmented.png)
+
+#### 4.3 Final Conclusion
+
+The primary goal of this project is to enable reliable inference from a camera. After multiple experiments, it is clear that the current fragile watermarking method is not robust enough to survive the physical print-and-scan process. The distortions introduced by printing and camera capture effectively destroy the pattern, making it impossible for the model to distinguish between a genuine item and a forgery.
+
+To achieve the project's goal, a new type of watermark is necessary—one that is strong enough to be detected after printing and scanning, yet fragile enough to be destroyed upon photocopying. The design of such a watermark is a significant challenge and an active topic of research in the fields of computer vision and document security. Finding a viable solution will require further investigation and time.
 
 ## How to Use This Project
 
