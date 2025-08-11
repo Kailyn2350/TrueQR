@@ -1,3 +1,7 @@
+**English** | [한국어](README.ko.md) | [日本語](README.ja.md)
+
+---
+
 # TrueQR: A Project for QR Code Forgery Detection
 
 ## Abstract
@@ -265,11 +269,11 @@ This demonstrates that the model is capable of identifying the degradation of th
 | ![Genuine Verification](results/Test_origin.jpg) | ![1st Copy Verification](results/Test_Onecopy.jpg) | ![2nd Copy Verification](results/Test_Doublecopy.jpg) |
 
 #### 5.2 Size Dependency and Failure on Large QR Codes
-A critical limitation was discovered when testing with a larger-sized QR code. When a large QR was printed and then copied, **both the original and the copy were classified as GENUINE.**
+A critical limitation was discovered when testing with a larger-sized QR code. When a large QR was printed and then copied, the model incorrectly classified the copy as GENUINE.
 
-| Large Genuine Original | Large Copy |
-| :---: | :---: |
-| ![Large Genuine QR](results/BigQR_Origin.jpg) | ![Large Copied QR](results/BigQR_Copy.jpg) |
+The image below (`Test_BigQR.jpg`) shows a real-time inference result from the web application. The QR code being scanned is a **first-generation copy**, yet the model incorrectly identifies it as genuine. This is an undesirable result.
+
+![Large Copied QR Fails Verification](results/Test_BigQR.jpg)
 
 **Analysis:**
 The physical size of the QR code is a critical variable. When a larger QR code is copied, the embedded fragile patterns are also scaled up, making them more robust and less likely to be destroyed by the copying process.
