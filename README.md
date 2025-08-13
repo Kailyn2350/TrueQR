@@ -16,17 +16,38 @@ The verification process is not designed to find generic artifacts of copying, b
 
 The methodology involves three primary signature components, each targeting a different characteristic of the image.
 
+
 #### 1. Perceptual Hash (pHash)
 
-A perceptual hash is used to create a "fingerprint" of the image's low-frequency components. This provides a general representation of the QR code's structure that is robust to minor scaling and compression but will change if the overall structure is altered.
+**Perceptual Hash (pHash)** is a method used to create a **fingerprint** of an image's **low-frequency components**. This fingerprint provides a general representation of the **QR code's structure** that is robust to **minor scaling** and **compression**, but will change if the overall structure is altered. The process can be broken down as follows:
 
-The process is as follows:
-1.  The image $I$ is converted to grayscale and resized to a fixed size (e.g., 32x32).
-2.  The 2D Discrete Cosine Transform (DCT) is applied:
-    $$C = \text{DCT}(I)$$
-3.  A low-frequency $8 \times 8$ sub-region $C_{low}$ is extracted.
-4.  The median value $m$ of the coefficients in $C_{low}$ (excluding the DC component $C[0,0]$) is calculated.
-5.  A 63-bit hash $H$ is generated where each bit $h_i$ corresponds to a coefficient $c_i$ in $C_{low}$:
+##### **Steps for Creating pHash:**
+
+1.  **Convert the Image to Grayscale and Resize:**
+    The image $I$ is first **converted to grayscale** and resized to a fixed size (e.g., $32 \times 32$).
+    - This step simplifies the image by removing color information and resizing ensures that the image has a consistent size, focusing only on the major structural features.
+
+2.  **Apply 2D Discrete Cosine Transform (DCT):**
+    The **2D DCT** is then applied to the grayscale image $I$:
+    $$
+    C = \text{DCT}(I)
+    $$
+    - The DCT converts the image from the **spatial domain** to the **frequency domain**.
+    - It separates the image into **low-frequency** components (large-scale structures) and **high-frequency** components (fine details).
+
+3.  **Extract Low-Frequency $8 \times 8$ Sub-region:**
+    A sub-region $C_{\text{low}}$ of size $8 \times 8$ is extracted from the DCT matrix. This part represents the **key structural features** of the image.
+    - These low-frequency components typically represent the **overall brightness** and **shapes** in the image.
+
+4.  **Calculate the Median Value:**
+    The **median value ($m$)** of the coefficients in the extracted low-frequency sub-region $C_{\text{low}}$ is calculated, excluding the DC component $C[0,0]$:
+    $$
+    m = \text{median}(C_{\text{low}}[1:, 1:])
+    $$
+    - The median is used to determine the threshold for generating the hash, representing the "average" value of the low-frequency components.
+
+5.  **Generate the 63-Bit Hash:**
+    A **63-bit hash** $H$ is generated, where each bit corresponds to a coefficient in the **low-frequency sub-region**. The bits are assigned based on whether the coefficient is greater than the median value:
     $$
     h_i = 
     \begin{cases} 
@@ -34,9 +55,29 @@ The process is as follows:
     0 & \text{otherwise}
     \end{cases}
     $$
-    
-**Verification:** The Hamming distance $d_H$ between the pHash of the test image ($H_{test}$) and the reference image ($H_{ref}$) is calculated. The check passes if the distance is below a certain threshold $\tau_p$:
-$$d_H(H_{test}, H_{ref}) \le \tau_p$$
+    - This results in a **binary string** of 63 bits, which serves as a **perceptual hash** of the image. The hash uniquely represents the image's low-frequency structure.
+
+##### **Verification Using Hamming Distance:**
+The **Hamming distance** $d_H$ between the pHash of the **test image** ($H_{\text{test}}$) and the **reference image** ($H_{\text{ref}}$) is calculated:
+$$d_H(H_{\text{test}}, H_{\text{ref}}) = \sum_{i=1}^{63} \left| h_{\text{test}, i} - h_{\text{ref}, i} \right|$$
+- The check passes if the Hamming distance is below a certain threshold $\tau_p$:
+$$d_H(H_{\text{test}}, H_{\text{ref}}) \leq \tau_p$$
+- If the distance is small, the two images are considered **similar** or a **match**.
+
+---
+
+##### **Summary of pHash:**
+
+- **pHash** creates a **unique fingerprint** based on the **low-frequency components** of an image.
+- It is **robust to minor changes** like **scaling** or **compression**, but will change if the **overall structure** of the image is altered.
+- **Hamming distance** is used to verify the similarity of images by comparing their **hash values**.
+
+##### **Applications of pHash:**
+- **Image duplication detection**
+- **Image comparison** for **similarity**
+- **Efficient image indexing** based on perceptual similarity
+
+
 
 #### 2. High-Frequency Grid (HFG) Strength
 
